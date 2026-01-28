@@ -1330,7 +1330,7 @@ input, select, textarea {
 	}
 
 	body {
-		background : linear-gradient(to bottom left, #D9C8B3, #FAF0E6);
+		background-color: linear-gradient(to bottom left, #D9C8B3, #FAF0E6);
 		background-repeat: repeat, no-repeat;
 		background-size: auto, cover;
 		background-attachment: fixed;
@@ -2191,5 +2191,9 @@ input, select, textarea {
 				padding-left: 0.5em;
 				margin-left: 0.5em;
 			}
+		.force-nouvelle-page {
+			break-before: page;
+			page-break-before:always;
+		}
 
 		}
