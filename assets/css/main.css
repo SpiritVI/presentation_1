@@ -1758,8 +1758,9 @@ input, select, textarea {
 
 	.icon {
 		text-decoration: none;
-		position: relative;
+		position: absolute;
 		text-decoration: none;
+		color: "black";
 	}
 
 		.icon:before {
