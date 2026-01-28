@@ -64,10 +64,6 @@
 						$link = $nav_links.filter('[href="' + window.location.hash + '"]');
 
 					}
-				
-				// No target panel? Bail.
-                    if ($panel.length == 0)
-                        return;
 
 				// No panel/link? Default to first.
 					if (!$panel
@@ -82,9 +78,6 @@
 					$panels.not($panel)
 						.addClass('inactive')
 						.hide();
-
-				// Afficher la section active.
-				    $panel.show()
 
 				// Activate link.
 					$link
