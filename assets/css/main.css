@@ -44,6 +44,19 @@ separator {
   margin: 30px auto;       /* centrée */
 }
 
+exemple{
+	margin-left: 40px;
+	margin-right: 20px;
+	margin-top:20px;
+	margin-bottom: 20px;
+	background-color: #FAF0E6;
+	padding: 15px 20px;
+	border-left: 5px solid #E0D4C9;
+	border-radius: 0 8px 8px 0;
+	font-style: italic;
+	color: #E0D4C9;
+}
+
 ol, ul {
 	list-style: none;
 }
