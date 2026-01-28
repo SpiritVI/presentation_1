@@ -1330,7 +1330,7 @@ input, select, textarea {
 	}
 
 	body {
-		background : linear-gradient(to bottom left, #D9C8B3, #FAF0E6);
+		background : linear-gradient(to bottom left, ##5A3E2D, #FAF0E6);
 		background-repeat: repeat, no-repeat;
 		background-size: auto, cover;
 		background-attachment: fixed;
@@ -1984,6 +1984,7 @@ input, select, textarea {
 			-webkit-transition: opacity 0.25s ease-in-out;
 			-ms-transition: opacity 0.25s ease-in-out;
 			transition: opacity 0.25s ease-in-out;
+			display:none;
 			margin-bottom: 0;
 			position: relative;
 			padding: 3.5em 2.5em 2.5em 2.5em;
