@@ -33,30 +33,6 @@ body {
 	line-height: 1;
 }
 
-separator {
-  width: 95%;              /* s’adapte à la largeur de l’écran */
-  max-width: 900px;        /* optionnel : évite que ce soit trop large sur grand écran */
-  height: 12px;             /* ligne légèrement plus marquée */
-  background-color: #191970; /* bleu marine */
-  border: none;
-  border-radius: 5px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,0.15);
-  margin: 30px auto;       /* centrée */
-}
-
-div.exemple {
-	margin-left: 40px;
-	margin-right: 20px;
-	margin-top:20px;
-	margin-bottom: 20px;
-	background-color: #FAF0E6;
-	padding: 10px 12px;
-	border-left: 5px solid #E0D4C9;
-	border-radius: 0 8px 8px 0;
-	font-style: italic;
-	color: #473F3B;
-}
-
 ol, ul {
 	list-style: none;
 }
@@ -1330,9 +1306,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: linear-gradient(to bottom left, #D9C8B3, #FAF0E6);
-		background-repeat: repeat, no-repeat;
-		background-size: auto, cover;
+		background: linear-gradient(to top right,#473F3B 0%, #FAF0E6 100%) ;
 		background-attachment: fixed;
 		overflow-y: scroll;
 	}
@@ -1758,9 +1732,8 @@ input, select, textarea {
 
 	.icon {
 		text-decoration: none;
-		position: absolute;
+		position: relative;
 		text-decoration: none;
-		color: "black";
 	}
 
 		.icon:before {
@@ -1970,7 +1943,7 @@ input, select, textarea {
 
 	#main {
 		position: relative;
-		overflow: visible;
+		overflow: hidden;
 		width: 100%;
 		background: #ffffff;
 		box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
@@ -2005,7 +1978,7 @@ input, select, textarea {
 
 			#main > .panel.intro {
 				padding: 0;
-				min-height: 20em;
+				height: 20em;
 				display: -moz-flex;
 				display: -webkit-flex;
 				display: -ms-flex;
@@ -2168,14 +2141,15 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		color: black;
+		color: rgba(255, 255, 255, 0.45);
 		text-align: center;
-		padding: 5px 0 0 0;
-		font-size: 15px;
+		padding: 2em 0 0 0;
+		font-size: 0.75em;
 	}
 
 		#footer a {
-			color: black;
+			color: #ddd;
+			color: rgba(255, 255, 255, 0.65);
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
 			-ms-transition: color .25s ease-in-out;
@@ -2183,8 +2157,27 @@ input, select, textarea {
 		}
 
 			#footer a:hover {
-				color: black;
+				color: white;
 			}
+
+		#footer .copyright {
+			list-style: none;
+			padding-left: 0;
+		}
+
+			#footer .copyright li {
+				display: inline-block;
+				padding-left: 1em;
+				margin-left: 1em;
+				border-left: solid 1px rgba(255, 255, 255, 0.25);
+				line-height: 1;
+			}
+
+				#footer .copyright li:first-child {
+					padding-left: 0;
+					margin-left: 0;
+					border-left: 0;
+				}
 
 		@media screen and (max-width: 736px) {
 
@@ -2192,9 +2185,5 @@ input, select, textarea {
 				padding-left: 0.5em;
 				margin-left: 0.5em;
 			}
-		.force-nouvelle-page {
-			break-before: page;
-			page-break-before:always;
-		}
 
 		}
