@@ -1,0 +1,26 @@
+/* Custom CSS pour adapter le fond blanc au contenu */
+
+/* Force les panels à s'adapter à leur contenu */
+#main .panel {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 3em 2em !important;
+}
+
+/* S'assurer que le wrapper s'adapte aussi */
+#wrapper {
+    min-height: 100vh;
+    height: auto !important;
+}
+
+#main {
+    height: auto !important;
+    min-height: auto !important;
+}
+
+/* Adaptation responsive pour petits écrans */
+@media screen and (max-width: 736px) {
+    #main .panel {
+        padding: 2em 1.5em !important;
+    }
+}
