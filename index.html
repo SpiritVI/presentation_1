@@ -13,6 +13,40 @@
 		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		
+		<!-- CSS d'urgence - AJOUTEZ CECI DANS LE HEAD -->
+		<style>
+		/* CSS d'urgence */
+		#main > article {
+			display: none;
+			min-height: 100vh;
+			padding: 2em;
+			box-sizing: border-box;
+		}
+
+		#main > article.active {
+			display: block;
+		}
+
+		/* Assure que le wrapper prend toute la hauteur */
+		#wrapper {
+			position: relative;
+			min-height: 100vh;
+		}
+
+		#main {
+			position: relative;
+			height: 100%;
+		}
+
+		/* Style de base pour les panneaux */
+		.panel {
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 10px;
+			margin: 20px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+		}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -33,67 +67,7 @@
 
 						<!-- Intro -->
 							<article id="intro" class="panel intro">
-								<header>
-         <style>
-/* CSS d'urgence */
-#main > article {
-    display: none;
-    min-height: 100vh;
-    padding: 2em;
-    box-sizing: border-box;
-}
-
-#main > article.active {
-    display: block;
-}
-
-/* Assure que le wrapper prend toute la hauteur */
-#wrapper {
-    position: relative;
-    min-height: 100vh;
-}
-
-#main {
-    position: relative;
-    height: 100%;
-}
-
-/* Style de base pour les panneaux */
-.panel {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Style pour la navigation */
-#nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-#nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #473F3B;
-    font-size: 12px;
-}
-
-#nav .icon {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-</style>
-     </header>
+								<header></header>
 									<h1><u>Introduction</u></h1>
 									<ul>
 										<li><i>Title:</li>5 lessons about misinformation from ancient Greek and Roman scientists.</li>
@@ -101,7 +75,7 @@
 										<li><i>Published: </i> December 29, 2025</li>
 										<li><i>Author :</i>Jemima McPhee</li>
 									</ul>
-        <p><u>Misinformation</u> is false information that is shared inadvertently, without meaning to cause harm. The terms misinformation and disinformation are often used interchangeably.</p>
+        <p><u>Misinformation</u> is false information that is shared inadvertently, without meaning to cause harm. The terms misinformation and disinformation are often used interchangeably.</p>
 								<hr style="
 									width: 50%;
 									max-width: 400px;
@@ -204,7 +178,7 @@
 										<ol>
 										 	<li>the Moon passing in front of the Sun</li>
 											<li>some other opaque body passing in front of the Sun, or</li>
-											<li>the Sun’s light temporarily growing dim for some reason."</li>
+											<li>the Sun's light temporarily growing dim for some reason."</li>
 										</ol>									
 										</p>
 									</div>
@@ -249,7 +223,7 @@
 										"An ancient medical text from the school of Hippocrates called On the Sacred Disease sought to explain the causes of epilepsy."
 										<br>
 										<u>Exemple 5:</u><br>
-										"The anonymous Aetna author says something similar: “Science is no place for genius.”"
+										"The anonymous Aetna author says something similar: "Science is no place for genius.""
 										</p>
 									</div>
 								</section>
@@ -316,13 +290,43 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- SCRIPT D'URGENCE - AJOUTEZ CECI AVANT </body> -->
+			<script>
+			// Script d'urgence pour la navigation
+			document.addEventListener('DOMContentLoaded', function() {
+				// Gestion des clics sur la navigation
+				document.querySelectorAll('#nav a').forEach(function(link) {
+					link.addEventListener('click', function(e) {
+						e.preventDefault();
+						var targetId = this.getAttribute('href').substring(1);
+						
+						// Cache tous les panneaux
+						document.querySelectorAll('#main > article').forEach(function(panel) {
+							panel.style.display = 'none';
+							panel.classList.remove('active');
+						});
+						
+						// Affiche le panneau cible
+						var targetPanel = document.getElementById(targetId);
+						if (targetPanel) {
+							targetPanel.style.display = 'block';
+							targetPanel.classList.add('active');
+						}
+						
+						// Scroll vers le haut
+						window.scrollTo(0, 0);
+					});
+				});
+				
+				// Affiche le premier panneau par défaut
+				var firstPanel = document.querySelector('#main > article');
+				if (firstPanel) {
+					firstPanel.style.display = 'block';
+					firstPanel.classList.add('active');
+				}
+			});
+			</script>
 
 	</body>
 </html>
-
-
-
-
-
-
-
