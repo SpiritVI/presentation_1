@@ -285,58 +285,56 @@
   <script>
 			<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<!-- NE PAS CHARGER main.js car il interfère -->
-<!-- <script src="assets/js/main.js"></script> -->
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!-- NE PAS CHARGER main.js car il interfère -->
+		<!-- <script src="assets/js/main.js"></script> -->
 
-<!-- SCRIPT DE NAVIGATION SIMPLIFIÉ -->
-<script>
-(function() {
-    'use strict';
-    
-    // Fonction pour afficher un article
-    function showArticle(targetId) {
-        // Cacher tous les articles
-        document.querySelectorAll('#main > article').forEach(function(article) {
-            article.style.display = 'none';
-            article.classList.remove('active');
-        });
-        
-        // Afficher l'article cible
-        var target = document.getElementById(targetId);
-        if (target) {
-            target.style.display = 'block';
-            target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    }
-    
-    // Initialisation au chargement
-    document.addEventListener('DOMContentLoaded', function() {
-        // Afficher seulement l'intro au départ
-        showArticle('intro');
-        
-        // Ajouter les événements de clic sur la navigation
-        document.querySelectorAll('#nav a').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                var href = this.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    var targetId = href.substring(1);
-                    showArticle(targetId);
-                }
-                
-                return false;
-            });
-        });
-    });
-})();
-</script>
-							
+		<!-- SCRIPT DE NAVIGATION SIMPLIFIÉ -->
+		<script>
+		(function() {
+		    'use strict';
+		    
+		    // Fonction pour afficher un article
+		    function showArticle(targetId) {
+		        // Cacher tous les articles
+		        document.querySelectorAll('#main > article').forEach(function(article) {
+		            article.style.display = 'none';
+		            article.classList.remove('active');
+		        });
+		        
+		        // Afficher l'article cible
+		        var target = document.getElementById(targetId);
+		        if (target) {
+		            target.style.display = 'block';
+		            target.classList.add('active';
+		            window.scrollTo({ top: 0, behavior: 'smooth' });
+		        }
+		    }
+		    
+		    // Initialisation au chargement
+		    document.addEventListener('DOMContentLoaded', function() {
+		        // Afficher seulement l'intro au départ
+		        showArticle('intro');
+		        
+		        // Ajouter les événements de clic sur la navigation
+		        document.querySelectorAll('#nav a').forEach(function(link) {
+		            link.addEventListener('click', function(e) {
+		                e.preventDefault();
+		                e.stopPropagation();
+		                
+		                var href = this.getAttribute('href');
+		                if (href && href.startsWith('#')) {
+		                    var targetId = href.substring(1);
+		                    showArticle(targetId);
+		                }
+		                
+		                return false;
+		            });
+		        });
+		    });
+		})();
 
 	</body>
 </html>
