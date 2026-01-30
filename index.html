@@ -13,47 +13,15 @@
 		<link rel="stylesheet" href="assets/css/custom.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-		
-		<!-- CSS d'urgence - VERSION SIMPLIFIÉE -->
-		<style>
-		/* CSS d'urgence - SIMPLE ET EFFICACE */
-		#main > article {
-			display: none;
-			min-height: 100vh;
-			padding: 2em;
-			box-sizing: border-box;
-		}
-
-		#main > article.active {
-			display: block;
-		}
-
-		/* Style de base pour les panneaux */
-		.panel {
-			background: rgba(255, 255, 255, 0.95);
-			border-radius: 10px;
-			margin: 20px;
-			box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-		}
-		
-		/* S'assurer que la navigation est cliquable */
-		#nav {
-			z-index: 1000;
-		}
-		
-		#nav a {
-			cursor: pointer;
-		}
-		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper-->
 			<div id="wrapper">
 
-				<!-- Nav - CORRIGEZ LES HREF ! -->
+				<!-- Nav -->
 					<nav id="nav">
-						<a href="#intro" class="icon solid fa-globe"><span>Introduction</span></a>
+						<a href="#Intro" class="icon solid fa-globe"><span>Introduction</span></a>
 						<a href="#l12" class="icon solid fa-search"><span>Lessons 1 & 2</span></a>
 						<a href="#l3" class="icon solid fa-balance-scale"><span>Lesson 3</span></a>
 						<a href="#l45" class="icon solid fa-book-open"><span>Lessons 4 & 5</span></a>
@@ -64,16 +32,15 @@
 					<div id="main">
 
 						<!-- Intro -->
-							<article id="intro" class="panel intro active">
-								<header></header>
-									<h1><u>Introduction</u></h1>
+							<article id="intro" class="panel intro">
+								<header>
+									<h1><u>5 lessons about misinformation from ancient Greek and Roman scientists.</u></h1>
 									<ul>
-										<li><i>Title:</i> 5 lessons about misinformation from ancient Greek and Roman scientists.</li>
-										<li><i>Link:</i> <a href="https://theconversation.com/5-lessons-about-misinformation-from-ancient-greek-and-roman-scientists-270941">Article The Conversation: 5 lessons</a></li>
-										<li><i>Published: </i> December 29, 2025</li>
-										<li><i>Author :</i> Jemima McPhee</li>
+										<li><i>Link :</i> <a href="https://theconversation.com/5-lessons-about-misinformation-from-ancient-greek-and-roman-scientists-270941">Article The Conversation : 5 lessons</a></li>
+										<li><i>Published : </i> December 29, 2025</li>
+										<li><i>Author :</i>Jemima McPhee</li>
 									</ul>
-									<p><u>Misinformation</u> is false information that is shared inadvertently, without meaning to cause harm. The terms misinformation and disinformation are often used interchangeably.</p>
+								</header>
 								<hr style="
 									width: 50%;
 									max-width: 400px;
@@ -174,9 +141,9 @@
 										<p><u>Exemple 3:</u><br>
 										"In On the Nature of Things, Roman philosopher Lucretius proposed three different explanations for solar eclipses:</p>
 										<ol>
-											<li>the Moon passing in front of the Sun</li>
+										 	<li>the Moon passing in front of the Sun</li>
 											<li>some other opaque body passing in front of the Sun, or</li>
-											<li>the Sun's light temporarily growing dim for some reason."</li>
+											<li>the Sun’s light temporarily growing dim for some reason."</li>
 										</ol>									
 										</p>
 									</div>
@@ -221,7 +188,7 @@
 										"An ancient medical text from the school of Hippocrates called On the Sacred Disease sought to explain the causes of epilepsy."
 										<br>
 										<u>Exemple 5:</u><br>
-										"The anonymous Aetna author says something similar: "Science is no place for genius.""
+										"The anonymous Aetna author says something similar: “Science is no place for genius.”"
 										</p>
 									</div>
 								</section>
@@ -282,59 +249,18 @@
 
 			</div>
 
-  <script>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!-- NE PAS CHARGER main.js car il interfère -->
-		<!-- <script src="assets/js/main.js"></script> -->
-
-		<!-- SCRIPT DE NAVIGATION SIMPLIFIÉ -->
-		<script>
-		(function() {
-		    'use strict';
-		    
-		    // Fonction pour afficher un article
-		    function showArticle(targetId) {
-		        // Cacher tous les articles
-		        document.querySelectorAll('#main > article').forEach(function(article) {
-		            article.style.display = 'none';
-		            article.classList.remove('active');
-		        });
-		        
-		        // Afficher l'article cible
-		        var target = document.getElementById(targetId);
-		        if (target) {
-		            target.style.display = 'block';
-		            target.classList.add('active');
-		            window.scrollTo({ top: 0, behavior: 'smooth' });
-		        }
-		    }
-		    
-		    // Initialisation au chargement
-		    document.addEventListener('DOMContentLoaded', function() {
-		        // Afficher seulement l'intro au départ
-		        showArticle('intro');
-		        
-		        // Ajouter les événements de clic sur la navigation
-		        document.querySelectorAll('#nav a').forEach(function(link) {
-		            link.addEventListener('click', function(e) {
-		                e.preventDefault();
-		                e.stopPropagation();
-		                
-		                var href = this.getAttribute('href');
-		                if (href && href.startsWith('#')) {
-		                    var targetId = href.substring(1);
-		                    showArticle(targetId);
-		                }
-		                
-		                return false;
-		            });
-		        });
-		    });
-		})();
-		</script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
+
+
+
+
+
+
