@@ -33,7 +33,46 @@
 
 						<!-- Intro -->
 							<article id="intro" class="panel intro">
-								<header></header>
+								<header>
+         <style>
+/* Correction d'urgence */
+#main > article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+    padding: 2em;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#main > article.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Assure que le body a une hauteur */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    height: 100%;
+    position: relative;
+}
+
+#main {
+    height: 100%;
+    position: relative;
+}
+</style>
+     </header>
 									<h1><u>Introduction</u></h1>
 									<ul>
 										<li><i>Title:</li>5 lessons about misinformation from ancient Greek and Roman scientists.</li>
