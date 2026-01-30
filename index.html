@@ -14,33 +14,18 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 		
-		<!-- CSS d'urgence - MODIFIEZ CECI -->
+		<!-- CSS d'urgence - VERSION SIMPLIFIÉE -->
 		<style>
-		/* CSS d'urgence - VERSION CORRIGÉE */
+		/* CSS d'urgence - SIMPLE ET EFFICACE */
 		#main > article {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.5s ease;
+			display: none;
+			min-height: 100vh;
 			padding: 2em;
 			box-sizing: border-box;
-			pointer-events: none;
 		}
 
 		#main > article.active {
-			opacity: 1;
-			visibility: visible;
-			pointer-events: auto;
-			position: relative;
-		}
-
-		/* Empile les articles sans le display:none */
-		#main {
-			position: relative;
-			min-height: 100vh;
+			display: block;
 		}
 
 		/* Style de base pour les panneaux */
@@ -66,19 +51,19 @@
 		<!-- Wrapper-->
 			<div id="wrapper">
 
-				<!-- Nav -->
+				<!-- Nav - CORRIGEZ LES HREF ! -->
 					<nav id="nav">
-						<a href="#" data-target="intro" class="icon solid fa-globe nav-link"><span>Introduction</span></a>
-						<a href="#" data-target="l12" class="icon solid fa-search nav-link"><span>Lessons 1 & 2</span></a>
-						<a href="#" data-target="l3" class="icon solid fa-balance-scale nav-link"><span>Lesson 3</span></a>
-						<a href="#" data-target="l45" class="icon solid fa-book-open nav-link"><span>Lessons 4 & 5</span></a>
-						<a href="#" data-target="fin" class="icon solid fa-comments nav-link"><span>Debate</span></a>
+						<a href="#intro" class="icon solid fa-globe"><span>Introduction</span></a>
+						<a href="#l12" class="icon solid fa-search"><span>Lessons 1 & 2</span></a>
+						<a href="#l3" class="icon solid fa-balance-scale"><span>Lesson 3</span></a>
+						<a href="#l45" class="icon solid fa-book-open"><span>Lessons 4 & 5</span></a>
+						<a href="#fin" class="icon solid fa-comments"><span>Debate</span></a>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Intro - AJOUTEZ LA CLASSE ACTIVE ICI -->
+						<!-- Intro -->
 							<article id="intro" class="panel intro active">
 								<header></header>
 									<h1><u>Introduction</u></h1>
@@ -304,76 +289,88 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			
-			<!-- SCRIPT D'URGENCE - VERSION SIMPLIFIÉE -->
+			<!-- SCRIPT D'URGENCE - VERSION AMÉLIORÉE -->
 			<script>
-			// Attendre que le DOM soit chargé
-			document.addEventListener('DOMContentLoaded', function() {
-				// Désactiver le comportement par défaut du template
-				$('#nav a').off('click');
-				
-				// Gestionnaire de clic personnalisé
-				$('.nav-link').on('click', function(e) {
-					e.preventDefault();
-					
-					var targetId = $(this).data('target');
-					
-					// Retirer la classe active de tous les articles
-					$('#main > article').removeClass('active');
-					
-					// Ajouter la classe active à l'article cible
-					$('#' + targetId).addClass('active');
-					
-					// Optionnel: Scroll vers le haut
-					window.scrollTo(0, 0);
-					
-					return false;
+			// Attendre que tout soit chargé
+			window.addEventListener('load', function() {
+				// 1. Cacher tous les articles sauf le premier
+				var articles = document.querySelectorAll('#main > article');
+				articles.forEach(function(article, index) {
+					if (index === 0) {
+						article.style.display = 'block';
+						article.classList.add('active');
+					} else {
+						article.style.display = 'none';
+						article.classList.remove('active');
+					}
 				});
 				
-				// S'assurer que seul le premier article est visible au départ
-				$('#main > article').not('.active').css({
-					'opacity': '0',
-					'visibility': 'hidden',
-					'position': 'absolute'
+				// 2. Gestionnaire de clic pour la navigation
+				document.querySelectorAll('#nav a').forEach(function(link) {
+					link.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						
+						// Récupérer l'ID cible
+						var href = this.getAttribute('href');
+						if (!href || href === '#') return;
+						
+						var targetId = href.substring(1); // Enlève le #
+						
+						// Cacher tous les articles
+						articles.forEach(function(article) {
+							article.style.display = 'none';
+							article.classList.remove('active');
+						});
+						
+						// Afficher l'article cible
+						var target = document.getElementById(targetId);
+						if (target) {
+							target.style.display = 'block';
+							target.classList.add('active');
+							
+							// Scroll vers le haut
+							window.scrollTo({ top: 0, behavior: 'smooth' });
+						}
+					});
 				});
 				
-				$('#main > article.active').css({
-					'opacity': '1',
-					'visibility': 'visible',
-					'position': 'relative'
-				});
+				// 3. Désactiver les gestionnaires du template si nécessaire
+				if (typeof $ !== 'undefined') {
+					$('#nav a').off('click');
+				}
 			});
 			
-			// Fallback si jQuery échoue
-			setTimeout(function() {
-				if (typeof jQuery === 'undefined') {
-					// Version vanilla JS
-					document.querySelectorAll('.nav-link').forEach(function(link) {
-						link.addEventListener('click', function(e) {
-							e.preventDefault();
-							var targetId = this.getAttribute('data-target');
-							
-							// Cacher tous les articles
-							document.querySelectorAll('#main > article').forEach(function(article) {
-								article.classList.remove('active');
-								article.style.opacity = '0';
-								article.style.visibility = 'hidden';
-								article.style.position = 'absolute';
-							});
-							
-							// Afficher l'article cible
-							var target = document.getElementById(targetId);
-							if (target) {
-								target.classList.add('active');
-								target.style.opacity = '1';
-								target.style.visibility = 'visible';
-								target.style.position = 'relative';
-							}
-							
-							window.scrollTo(0, 0);
+			// Fallback pour mobile
+			document.addEventListener('DOMContentLoaded', function() {
+				// Solution ultra simple en cas d'échec
+				setTimeout(function() {
+					var navLinks = document.querySelectorAll('#nav a');
+					if (navLinks.length > 0) {
+						navLinks.forEach(function(link) {
+							link.onclick = function(e) {
+								e.preventDefault();
+								var href = this.getAttribute('href');
+								if (href && href !== '#') {
+									var targetId = href.substring(1);
+									
+									// Cacher tout
+									document.querySelectorAll('#main > article').forEach(function(el) {
+										el.style.display = 'none';
+									});
+									
+									// Afficher cible
+									var target = document.getElementById(targetId);
+									if (target) {
+										target.style.display = 'block';
+									}
+								}
+								return false;
+							};
 						});
-					});
-				}
-			}, 1000);
+					}
+				}, 500);
+			});
 			</script>
 
 	</body>
